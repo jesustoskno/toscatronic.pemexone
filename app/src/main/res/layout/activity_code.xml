@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.toscatronic.pemexone.CodeActivity">
+
+    <EditText
+        android:id="@+id/editActivacion"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Código de activación"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        tools:layout_editor_absoluteX="97dp"
+        tools:layout_editor_absoluteY="140dp" />
+
+    <Button
+        android:id="@+id/boton1"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:text="Activar"
+        tools:layout_editor_absoluteX="97dp"
+        tools:layout_editor_absoluteY="183dp" />
+
+    <TextView
+        android:id="@+id/textStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Activa la aplicación"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="115dp"
+        tools:layout_editor_absoluteY="40dp" />
+
+    <TextView
+        android:id="@+id/textAbout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Desarrollado por: ToscaTronic®"
+        tools:layout_editor_absoluteX="92dp"
+        tools:layout_editor_absoluteY="436dp" />
+
+</android.support.constraint.ConstraintLayout>

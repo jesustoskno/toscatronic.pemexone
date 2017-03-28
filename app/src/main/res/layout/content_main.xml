@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.toscatronic.pemexone.MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Pemex Magna"
+        android:inputType="numberDecimal"
+        android:maxLength="5"
+        android:textAlignment="center"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintRight_toRightOf="@+id/imageView2"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/imageView2"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginBottom="-1dp" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Pemex Premium"
+        android:inputType="numberDecimal"
+        android:maxLength="5"
+        android:textAlignment="center"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintRight_toRightOf="@+id/imageView3"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/imageView3"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginBottom="-8dp" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Pemex Diesel"
+        android:inputType="numberDecimal"
+        android:maxLength="5"
+        android:textAlignment="center"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginBottom="-1dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:text="Actualizar Precios"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="82dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/pemexmagna"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/editText1"
+        app:layout_constraintRight_toRightOf="@+id/editText1"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/editText1"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginBottom="-8dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/pemexpremium"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/editText2"
+        app:layout_constraintRight_toRightOf="@+id/editText2"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/editText2"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginBottom="-8dp" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/pemexdiesel"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/editText3"
+        app:layout_constraintRight_toRightOf="@+id/editText3"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/editText3"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginBottom="-8dp" />
+
+</android.support.constraint.ConstraintLayout>
