@@ -1,5 +1,6 @@
 package com.toscatronic.pemexone;
 
+import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -11,19 +12,76 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Switch btConnect;
+    private Switch btSwitch;
+    private Button updPrice;
+    private TextView txt;
+    private EditText pemexPremium;
+    private EditText pemexMagna;
+    private EditText pemexDiesel;
+
     @Override
     protected void onResume() {
         super.onResume();
 
-        Button updPrice = (Button) findViewById(R.id.priceButton);
-        TextView txt = (TextView) findViewById(R.id.textView);
+        updPrice = (Button) findViewById(R.id.priceButton);
+        txt = (TextView) findViewById(R.id.textView);
         preferences(txt);
+        btConnect = (Switch) findViewById(R.id.btConnect);
+        btSwitch = (Switch) findViewById(R.id.btSwitch);
+
+        btConnect.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    if (btAdapter.isEnabled()) {
+                        Intent intent = new Intent(MainActivity.this, DeviceActivity.class);
+                        deviceActivity(intent);
+                    } else {
+                        btConnect.setChecked(false);
+                        toast("Para conectarte enciende el bluetooth");
+                    }
+                }
+                if (!isChecked) {
+                    if (btAdapter.isEnabled()) {
+                        btAdapter.disable();
+                        btConnect.setChecked(false);
+                    }
+                }
+            }
+        });
+
+        if (btAdapter.isEnabled()) {
+            btSwitch.setChecked(true);
+        }
+        if (!btAdapter.isEnabled()) {
+            btSwitch.setChecked(false);
+        }
+
+
+        btSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    if (!btAdapter.isEnabled()) {
+                        btAdapter.enable();
+                    }
+                }
+                if (!isChecked) {
+                    if (btAdapter.isEnabled()) {
+                        btAdapter.disable();
+                    }
+                }
+            }
+        });
 
         View.OnClickListener onClickListener = new View.OnClickListener() {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
@@ -32,14 +90,12 @@ public class MainActivity extends AppCompatActivity {
             String mMagna = "";
             String mDiesel = "";
 
+
             @Override
             public void onClick(View v) {
                 if (info.length() < 1) {
                     toast("Debes activar la aplicación");
                 } else {
-                    EditText pemexPremium = (EditText) findViewById(R.id.editText1);
-                    EditText pemexMagna = (EditText) findViewById(R.id.editText2);
-                    EditText pemexDiesel = (EditText) findViewById(R.id.editText3);
                     if (pemexPremium.getText().length() < 1) {
                         pemexPremium.setError("Ingresa el precio");
                     } else {
@@ -99,15 +155,26 @@ public class MainActivity extends AppCompatActivity {
         updPrice.setOnClickListener(onClickListener);
     }
 
+    public BluetoothAdapter btAdapter = BluetoothAdapter.getDefaultAdapter();
+
+    private void deviceActivity(Intent intent) {
+        if (btAdapter.isEnabled()) {
+            startActivity(intent);
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        pemexPremium = (EditText) findViewById(R.id.editText1);
+        pemexMagna = (EditText) findViewById(R.id.editText2);
+        pemexDiesel = (EditText) findViewById(R.id.editText3);
     }
 
-    private void toast(String msj){
+    private void toast(String msj) {
         Toast toast = Toast.makeText(this, msj, Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.BOTTOM, 0, 0);
         toast.show();
@@ -145,5 +212,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }
