@@ -16,15 +16,18 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class DeviceActivity extends AppCompatActivity {
 
     private ListView deviceListView;
     private List<String> deviceList = new ArrayList<String>();
-    private List<String> macAddress = new ArrayList<String>();
+    private List<BluetoothDevice> btDevice = new ArrayList<BluetoothDevice>();
     private BluetoothAdapter btAdapter;
+    private UUID MY_UUID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +41,18 @@ public class DeviceActivity extends AppCompatActivity {
         deviceListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                toast(macAddress.get(position));
+                ConnectThread connectThread = new ConnectThread(btDevice.get(position));
+                try {
+                    connectThread.run();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                // BluetoothConnector connector = new BluetoothConnector(btDevice.get(position), false, btAdapter, null);
+                // try {
+                //  connector.connect();
+                //} catch (IOException e) {
+                //   e.printStackTrace();
+                // }
             }
         });
     }
@@ -50,7 +64,7 @@ public class DeviceActivity extends AppCompatActivity {
                 BluetoothDevice device = intent
                         .getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
                 deviceList.add(device.getName() + "\n" + device.getAddress());
-                macAddress.add(device.getAddress());
+                btDevice.add(device);
                 Log.i("BT", device.getName() + "\n" + device.getAddress());
                 deviceListView.setAdapter(new ArrayAdapter<String>(context,
                         android.R.layout.simple_list_item_1, deviceList));
@@ -61,6 +75,7 @@ public class DeviceActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         unregisterReceiver(btReceiver);
+        finish();
         super.onDestroy();
     }
 
@@ -71,4 +86,6 @@ public class DeviceActivity extends AppCompatActivity {
         toast.setGravity(Gravity.BOTTOM, 0, 0);
         toast.show();
     }
+
+
 }

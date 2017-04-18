@@ -2,4 +2,5 @@
     <string name="app_name">PemexOne</string>
     <string name="action_settings">Código de activación</string>
     <string name="activation_code_preference"></string>
+    <string name="UUID">00001101–0000–1000–8000–00805F9B34FB</string>
 </resources>
