@@ -23,7 +23,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".CodeActivity" />
-        <activity android:name=".DeviceActivity"></activity>
     </application>
 
 </manifest>
