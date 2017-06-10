@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.toscatronic.pemexone.MainActivity"
-    tools:showIn="@layout/activity_main">
+    tools:showIn="@layout/activity_main"
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
 
     <EditText
         android:id="@+id/editText1"
@@ -17,13 +19,17 @@
         android:maxLength="5"
         android:hint="$00.00"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="@+id/imageView2"
-        app:layout_constraintRight_toRightOf="@+id/imageView2"
+        android:layout_marginStart="71dp"
+        android:layout_marginEnd="71dp"
+        tools:layout_constraintRight_creator="1"
         tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/editText2"
+        app:layout_constraintRight_toRightOf="parent"
         tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1" />
+        android:layout_marginBottom="50dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="71dp"
+        android:layout_marginRight="71dp" />
 
     <EditText
         android:id="@+id/editText2"
@@ -34,13 +40,13 @@
         android:maxLength="5"
         android:hint="$00.00"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/imageView3"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="@+id/imageView3"
-        app:layout_constraintRight_toRightOf="@+id/imageView3"
+        tools:layout_constraintRight_creator="1"
         tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="@+id/editText1"
         tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1" />
+        android:layout_marginBottom="160dp"
+        app:layout_constraintLeft_toLeftOf="@+id/editText1" />
 
     <EditText
         android:id="@+id/editText3"
@@ -51,77 +57,95 @@
         android:maxLength="5"
         android:hint="$00.00"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/priceButton"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
         tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="@+id/btConnect"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="50dp"
+        app:layout_constraintTop_toBottomOf="@+id/editText2"
         tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1" />
+        android:layout_marginBottom="47dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <Button
         android:id="@+id/priceButton"
-        android:layout_width="190dp"
+        android:layout_width="0dp"
         android:layout_height="48dp"
         android:text="Actualizar Precios"
+        android:layout_marginStart="51dp"
+        android:layout_marginEnd="57dp"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintBottom_creator="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="112dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        android:layout_marginBottom="20dp"
+        app:layout_constraintLeft_toLeftOf="@+id/editText3"
+        android:layout_marginLeft="51dp"
+        android:layout_marginRight="57dp" />
 
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        app:srcCompat="@drawable/pemexpremium"
+        app:srcCompat="@mipmap/pemexpremium"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/editText1"
-        app:layout_constraintRight_toRightOf="@+id/editText1"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintRight_toRightOf="parent"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/editText1"
-        app:layout_constraintHorizontal_bias="0.0" />
+        android:layout_marginBottom="43dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        app:srcCompat="@drawable/pemexmagna"
+        app:srcCompat="@mipmap/pemexmagna"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/editText2"
-        app:layout_constraintRight_toRightOf="@+id/editText2"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintRight_toRightOf="@+id/imageView1"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/editText2"
-        app:layout_constraintHorizontal_bias="0.0" />
+        android:layout_marginBottom="43dp"
+        app:layout_constraintLeft_toLeftOf="@+id/imageView1" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        app:srcCompat="@drawable/pemexdiesel"
+        app:srcCompat="@mipmap/pemexdiesel"
+        tools:layout_constraintTop_creator="1"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/editText3"
-        app:layout_constraintRight_toRightOf="@+id/editText3"
+        app:layout_constraintBottom_toBottomOf="@+id/editText3"
+        app:layout_constraintRight_toRightOf="@+id/imageView2"
+        android:layout_marginTop="43dp"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/editText3"
-        app:layout_constraintHorizontal_bias="0.0" />
+        android:layout_marginBottom="43dp"
+        app:layout_constraintLeft_toLeftOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/editText2" />
 
     <Button
         android:id="@+id/btConnect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         android:text="Conectar"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintRight_toLeftOf="@+id/priceButton"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintBaseline_toBaselineOf="@+id/priceButton"
+        tools:layout_constraintBaseline_creator="1" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@mipmap/toscalogo"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/priceButton"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toTopOf="@+id/imageView1" />
 
 </android.support.constraint.ConstraintLayout>
