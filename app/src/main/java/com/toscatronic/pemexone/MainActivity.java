@@ -15,7 +15,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -164,11 +163,6 @@ public class MainActivity extends AppCompatActivity {
         Toast toast = Toast.makeText(this, msj, Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.BOTTOM, 0, 0);
         toast.show();
-    }
-
-    private void preferences(TextView txt) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        txt.setText(prefs.getString("code", ""));
     }
 
     @Override
