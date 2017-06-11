@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 import java.io.IOException;
 import java.io.InputStream;
@@ -31,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
     private BluetoothSocket mmSocket;
     private byte[] msgBytes;
     private BluetoothDevice btDevice;
+    private ImageView cleanPricePremium;
+    private ImageView cleanPriceMagna;
+    private ImageView cleanPriceDiesel;
 
     @Override
     protected void onResume() {
@@ -38,6 +42,30 @@ public class MainActivity extends AppCompatActivity {
         btAdapter.enable();
         updPrice = (Button) findViewById(R.id.priceButton);
         btConnect = (Button) findViewById(R.id.btConnect);
+        cleanPricePremium = (ImageView) findViewById(R.id.imageView4);
+        cleanPriceMagna = (ImageView) findViewById(R.id.imageView5);
+        cleanPriceDiesel = (ImageView) findViewById(R.id.imageView6);
+
+        cleanPricePremium.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pemexPremium.setText("");
+            }
+        });
+
+        cleanPriceMagna.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pemexMagna.setText("");
+            }
+        });
+
+        cleanPriceDiesel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pemexDiesel.setText("");
+            }
+        });
 
         btConnect.setOnClickListener(new View.OnClickListener() {
             @Override
